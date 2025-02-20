@@ -3,15 +3,18 @@ using ContosoPizza.Models;
 
 namespace ContosoPizza.Services
 {
+    // Service pour gérer les opérations liées aux pizzas
     public class PizzaService
     {
         private readonly PizzaContext _context = default!;
 
+        // Constructeur qui initialise le contexte de la base de données
         public PizzaService(PizzaContext context) 
         {
             _context = context;
         }
         
+        // Méthode pour obtenir la liste des pizzas
         public IList<Pizza> GetPizzas()
         {
             if(_context.Pizzas != null)
@@ -21,6 +24,7 @@ namespace ContosoPizza.Services
             return new List<Pizza>();
         }
 
+        // Méthode pour ajouter une nouvelle pizza
         public void AddPizza(Pizza pizza)
         {
             if (_context.Pizzas != null)
@@ -30,6 +34,7 @@ namespace ContosoPizza.Services
             }
         }
 
+        // Méthode pour supprimer une pizza par son identifiant
         public void DeletePizza(int id)
         {
             if (_context.Pizzas != null)
